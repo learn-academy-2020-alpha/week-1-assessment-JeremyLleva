@@ -11,7 +11,15 @@ var temp1 = 35
 var temp2 = 350
 var temp3 = 212
 
+var checkBoiling = (temp) => {
+    if( temp === 212) return `212 is above boiling point`
+    else if(temp > 212) return `${temp} is above boiling point`
+    else return `${temp} is belove boiling point`
+}
 
+console.log(checkBoiling(temp1))
+console.log(checkBoiling(temp2))
+console.log(checkBoiling(temp3))
 
 
 // --------------------2) Create a function that multiplies each number in the array by 5 using a for loop.
@@ -19,6 +27,13 @@ var temp3 = 212
 
 var myNumbers1 = [3, 7, 0, 6, -9]
 
+var mult5 = (nums) => {
+    for(let i = 0; i < nums.length; i++){
+        nums[i] = nums[i] * 5
+    }
+    return nums
+}
+console.log(mult5(myNumbers1))
 
 
 
@@ -27,6 +42,10 @@ var myNumbers1 = [3, 7, 0, 6, -9]
 
 var myNumbers2 = [8, -7, 0, 6, 2]
 
+var mapsMult5 = (nums) => {
+    return nums.map(value => value * 5)
+}
+console.log(mapsMult5(myNumbers2))
 
 
 
@@ -36,7 +55,16 @@ var myNumbers2 = [8, -7, 0, 6, 2]
 var stringWithVowels1 = "HeyThereLearnStudent"
 var stringWithVowels2 = "ILoveJavaScript"
 
-
+var noVowels = (string) => {
+    var vowels = "aeiouAEIOU"
+    var noVowelsString = ""
+    for(let i = 0; i < string.length; i++){
+        if(!(vowels.includes(string[i]))) noVowelsString += string[i]
+    }
+    return noVowelsString;
+}
+console.log(noVowels(stringWithVowels1))
+console.log(noVowels(stringWithVowels2))
 
 
 
@@ -45,6 +73,19 @@ var stringWithVowels2 = "ILoveJavaScript"
 
 var notAString1 = true
 var notAString2 = 42
+
+var notAString1 = true
+var notAString2 = 42
+
+var noVowelsExtended = (string) => {
+    var vowels = "aeiouAEIOU"
+    var noVowelsString = ""
+    for(let i = 0; i < string.length; i++){
+        if(!(vowels.includes(string[i]))) noVowelsString += string[i]
+    }
+    return noVowelsString;
+}
+
 
 
 
@@ -55,7 +96,21 @@ var notAString2 = 42
 
 var toonimals = [ {name: "Itchy", animal: "mouse"}, {name: "Stimpy", animal: "cat"}, {name: "Daffy", animal: "duck"}, {name: "Scratchy", animal: "cat"}, {name: "Ren", animal: "dog"}, {name: "Felix", animal: "cat"}]
 
+var catsOnly = (list) => {
+    return list.filter(value => value.animal === "cat")
+}
+console.log(catsOnly(toonimals))
 
 
 // --------------------7) Using the toonimals variable from #6, create a function that returns only the names of the non-cats.
 // Expected output: "Itchy" "Daffy" "Ren"
+
+var noCats = (list) => {
+    var string = ""
+    var noCatsList = list.filter(value => value.animal != "cat");
+    for(let i = 0; i < noCatsList.length; i++){
+        string += `\"${noCatsList[i].name}\" `
+    }
+    return string;
+}
+console.log(noCats(toonimals))
